@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  collect:
+    build: .
+    env_file:
+      - envs/dev.env
+    volumes:
+      - .:/collector
+    ports:
+      - 8000:8000
