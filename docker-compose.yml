@@ -6,6 +6,6 @@ services:
     env_file:
       - envs/dev.env
     volumes:
-      - .:/collector
+      - .:/collection
     ports:
-      - 8000:8000
+      - 6800:6800
