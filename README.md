@@ -15,3 +15,13 @@ dc build
 # get a shell on the container
 dc run --rm --entrypoint=bash collect
 ```
+
+### Spiders -- Don't Freak Out.
+The name of the game is spiders. Currently, we're implementing these with [scrapy](https://docs.scrapy.org/). 
+
+##### A workflow: 
+```bash
+# these commands are taking place on the container 
+
+scrap
+```
