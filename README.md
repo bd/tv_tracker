@@ -10,8 +10,8 @@ In order to follow along, you must meet these pre-requisites, setup for which is
 alias dc='docker-compose'
 cd tv_tracker
 # build the collector
-dc build collector
+dc build
 
 # get a shell on the container
-dc run --rm --entrypoint=bash collector
+dc run --rm --entrypoint=bash collect
 ```
