@@ -1,18 +1,20 @@
 # -*- coding: utf-8 -*-
-import scrapy
 from pprint import pprint
 
-class HuluSpider(scrapy.Spider):
-    name = 'hulu'
+from scrapy.spiders import SitemapSpider
+
+class HuluSitemap(SitemapSpider):
+    name = 'hulu_sitemap'
     allowed_domains = ['hulu.com']
-    start_urls = ['http://hulu.com/',
-                  'https://www.hulu.com/sitemap_index.xml',
-                  '/api/2.0/static/page_content']
+    sitemap_urls = ['https://www.hulu.com/sitemap_index.xml']
+
+    def sitemap_filter(self, entries):
+        for entry in entries:
+            if 'hulu.com/series/' in entry['loc']:
+                yield entry
 
     def parse(self, response):
-        '''
-        Needs more research on parsing React pages.
-        as of now, none of the xpath or css selectors
-        I've pulled from the page yield anything very useful
-        '''
-        return None
+        # response.selector.remove_namespaces()
+        return response.xpath('//*')
+
+
